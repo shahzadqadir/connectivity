@@ -40,17 +40,19 @@ class Connectivity:
     def config_cmd_ssh(self, cmd_list: list) -> bool:
         self.check_connection()
         remote_conn = self.connection.invoke_shell()
+        time.sleep(0.3)
         for command in cmd_list:
             remote_conn.send(command + '\n')
+            time.sleep(0.3)
         remote_conn.close()
         self.connection = None
         return True
 
     def check_connection(self):
-        if self.connection is None:
+        if self.connection is None or not self.is_authenticated:
             self.login(username=input("Username: "), password=getpass.getpass("Password: "))
         else:
-            print(self.connection)
+            pass
 
     @classmethod
     def print_to_screen(cls, output: list):
