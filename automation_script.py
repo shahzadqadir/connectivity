@@ -52,24 +52,39 @@ def configure_trunk(switch: str, username: str, password: str,
     return output
 
 if __name__ == "__main__":
-    switches = ["10.10.99.13", "10.10.99.14"]
-    create_vlans(switches_list=switches,
-                 vlans_list=[(11, "Prod"), (12, "Dev"), (13, "Dev-Test")],
-                 username='script', password='cisco123')
-    show_vlans(switches_list=switches, 
-               username='script', password='cisco123')
+    # switches = ["10.10.99.13", "10.10.99.14"]
+    # create_vlans(switches_list=switches,
+    #              vlans_list=[(11, "Prod"), (12, "Dev"), (13, "Dev-Test")],
+    #              username='script', password='cisco123')
+    # show_vlans(switches_list=switches, 
+    #            username='script', password='cisco123')
+    # switch = "10.10.99.13"
+    # output = configure_trunk(switch=switch, username="script", password="cisco123", 
+    #                 port="Ethernet0/0", vlans=['11', '12', '13'])
+    # print(f"{switch} RESULTS")
+    # for line in output:
+    #     print(line)
+    
+    # switch = "10.10.99.14"
+    # output = configure_trunk(switch=switch, username="script", password="cisco123", 
+    #                 port="Ethernet0/0", vlans=['11', '12', '13'])
+    # print("#################")
+    # print(f"{switch} Results")
+    # for line in output:
+    #     print(line)
+
     switch = "10.10.99.13"
     output = configure_trunk(switch=switch, username="script", password="cisco123", 
-                    port="Ethernet0/0", vlans=['11', '12', '13'])
-    print(f"{switch} RESULTS")
+                    port="Ethernet0/1", vlans=['11', '12', '13'])
+    print(f"{switch} Results - SW1 to CSR1")
     for line in output:
         print(line)
     
     switch = "10.10.99.14"
     output = configure_trunk(switch=switch, username="script", password="cisco123", 
-                    port="Ethernet0/0", vlans=['11', '12', '13'])
+                    port="Ethernet0/1", vlans=['11', '12', '13'])
     print("#################")
-    print(f"{switch} Results")
+    print(f"{switch} Results - SW2 to CSR2")
     for line in output:
         print(line)
 
