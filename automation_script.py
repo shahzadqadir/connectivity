@@ -233,117 +233,118 @@ def test_connectivity(source_device: str, username: str, password: str,
         
 
 if __name__ == "__main__":
-    # switches = ["10.10.99.13", "10.10.99.14"]
-    # create_vlans(switches_list=switches,
-    #              vlans_list=[(11, "Prod"), (12, "Dev"), (13, "Dev-Test")],
-    #              username='script', password='cisco123')
-    # show_vlans(switches_list=switches, 
-    #            username='script', password='cisco123')
-    # switch = "10.10.99.13"
-    # output = configure_trunk(switch=switch, username="script", password="cisco123", 
-    #                 port="Ethernet0/0", vlans=['11', '12', '13'])
-    # print(f"{switch} RESULTS")
-    # for line in output:
-    # NEW
-    # for line in output:
-    #     print(line)
+    switches = ["10.10.99.13", "10.10.99.14"]
+    create_vlans(switches_list=switches,
+                 vlans_list=[(11, "Prod"), (12, "Dev"), (13, "Dev-Test")],
+                 username='script', password='cisco123')
+    show_vlans(switches_list=switches, 
+               username='script', password='cisco123')
+    switch = "10.10.99.13"
+    output = configure_trunk(switch=switch, username="script", password="cisco123", 
+                    port="Ethernet0/0", vlans=['11', '12', '13'])
+    print(f"{switch} RESULTS")
 
-    # switch = "10.10.99.13"
-    # output = configure_trunk(switch=switch, username="script", password="cisco123", 
-    #                 port="Ethernet0/1", vlans=['11', '12', '13'])
-    # print(f"{switch} Results - SW1 to CSR1")
-    # for line in output:
-    #     print(line)
-    
-    # switch = "10.10.99.14"
-    # output = configure_trunk(switch=switch, username="script", password="cisco123", 
-    #                 port="Ethernet0/1", vlans=['11', '12', '13'])
-    # print("#################")
-    # print(f"{switch} Results - SW2 to CSR2")
-    # for line in output:
-    #     print(line)
-
-    # router = "10.10.99.11"
-    # output = create_svis(router=router, username="script", password="cisco123", 
-    #                      svi_info=[
-    #                          ('GigabitEthernet2', '11', '172.16.11.1', '255.255.255.0'),
-    #                          ('GigabitEthernet2', '12', '172.16.12.1', '255.255.255.0'),
-    #                          ('GigabitEthernet2', '13', '172.16.13.1', '255.255.255.0'),
-    #                          ])
-    # for line in output:
-    #     print(line)
-    
-    # router = "10.10.99.12"
-    # output = create_svis(router=router, username="script", password="cisco123", 
-    #                      svi_info=[
-    #                          ('GigabitEthernet2', '11', '172.16.11.2', '255.255.255.0'),
-    #                          ('GigabitEthernet2', '12', '172.16.12.2', '255.255.255.0'),
-    #                          ('GigabitEthernet2', '13', '172.16.13.2', '255.255.255.0'),
-    #                          ])
-    # for line in output:
-    #     print(line)
-
-
-    # router = "10.10.99.11"
-    # output = configure_hsrp(router=router, username="script", password="cisco123", 
-    #                      svi_info=[
-    #                          ('GigabitEthernet2.11', '172.16.11.254', '130'),
-    #                          ('GigabitEthernet2.12', '172.16.12.254', '130'),
-    #                          ('GigabitEthernet2.13', '172.16.13.254', '130'),
-    #                          ])
-    # for line in output:
-    #     print(line)
-
-
-    # router = "10.10.99.12"
-    # output = configure_hsrp(router=router, username="script", password="cisco123", 
-    #                      svi_info=[
-    #                          ('GigabitEthernet2.11', '172.16.11.254', '120'),
-    #                          ('GigabitEthernet2.12', '172.16.12.254', '120'),
-    #                          ('GigabitEthernet2.13', '172.16.13.254', '120'),
-    #                          ])
-    # for line in output:
-    #     print(line)
-
-    # csr_routers = ["10.10.99.11", "10.10.99.12"]
-
-    # for router in csr_routers:
-    #     output = configure_bgp(router=router, username="script", password="cisco123", local_as='65534',
-    #                      networks_info=[
-    #                          ('172.16.11.0', '255.255.255.0'),
-    #                          ('172.16.12.0', '255.255.255.0'),
-    #                          ('172.16.13.0', '255.255.255.0'),
-    #                          ])
-    #     print(f"BGP Table for {router}:")
-    #     for line in output:
-    #         print(line)
-
-    # output = configure_fortigate_port(firewall="10.10.99.1", username="admin", password="cisco123", 
-    #                          port="port2", ip="172.16.21.1", mask="255.255.255.0", 
-    #                          mgmt_access=["ssh", "ping"], alias="inside", 
-    #                          role="lan", status="up")
-    # for line in output:
-    #     print(line)
-
-    # output = configure_fortigate_fw_policy("10.10.99.1", username="admin", password="cisco123",
-    #                                        policy_name="inside-outside", src_int="port2",
-    #                                        dest_int="port1", action="accept", 
-    #                                        src_address="all", dest_address="all")
-    # for line in output:
-    #     print(line)
-
-    # output = configure_vlan_and_svi("10.10.99.2", "script", "cisco123", "10",
-    #                                 ["Ethernet0/0", "Ethernet0/2"], True, "172.16.21.2", "255.255.255.0")
-    # for line in output:
-    #     print(line)
-
-    # output = create_static_route("10.10.99.2", "script", "cisco123",
-    #                              "0.0.0.0", "0.0.0.0", "172.16.21.1")
-    # for line in output:
-    #     print(line)
-
-    output = test_connectivity("10.10.99.2", "script", "cisco123",
-                               "172.16.21.2", "172.16.11.1")
     for line in output:
         print(line)
+
+    switch = "10.10.99.13"
+    output = configure_trunk(switch=switch, username="script", password="cisco123", 
+                    port="Ethernet0/1", vlans=['11', '12', '13'])
+    print(f"{switch} Results - SW1 to CSR1")
+    for line in output:
+        print(line)
+    
+    switch = "10.10.99.14"
+    output = configure_trunk(switch=switch, username="script", password="cisco123", 
+                    port="Ethernet0/1", vlans=['11', '12', '13'])
+    print("#################")
+    print(f"{switch} Results - SW2 to CSR2")
+    for line in output:
+        print(line)
+
+    router = "10.10.99.11"
+    output = create_svis(router=router, username="script", password="cisco123", 
+                         svi_info=[
+                             ('GigabitEthernet2', '11', '172.16.11.1', '255.255.255.0'),
+                             ('GigabitEthernet2', '12', '172.16.12.1', '255.255.255.0'),
+                             ('GigabitEthernet2', '13', '172.16.13.1', '255.255.255.0'),
+                             ])
+    for line in output:
+        print(line)
+    
+    router = "10.10.99.12"
+    output = create_svis(router=router, username="script", password="cisco123", 
+                         svi_info=[
+                             ('GigabitEthernet2', '11', '172.16.11.2', '255.255.255.0'),
+                             ('GigabitEthernet2', '12', '172.16.12.2', '255.255.255.0'),
+                             ('GigabitEthernet2', '13', '172.16.13.2', '255.255.255.0'),
+                             ])
+    for line in output:
+        print(line)
+
+
+    router = "10.10.99.11"
+    output = configure_hsrp(router=router, username="script", password="cisco123", 
+                         svi_info=[
+                             ('GigabitEthernet2.11', '172.16.11.254', '130'),
+                             ('GigabitEthernet2.12', '172.16.12.254', '130'),
+                             ('GigabitEthernet2.13', '172.16.13.254', '130'),
+                             ])
+    for line in output:
+        print(line)
+
+
+    router = "10.10.99.12"
+    output = configure_hsrp(router=router, username="script", password="cisco123", 
+                         svi_info=[
+                             ('GigabitEthernet2.11', '172.16.11.254', '120'),
+                             ('GigabitEthernet2.12', '172.16.12.254', '120'),
+                             ('GigabitEthernet2.13', '172.16.13.254', '120'),
+                             ])
+    for line in output:
+        print(line)
+
+    csr_routers = ["10.10.99.11", "10.10.99.12"]
+
+    for router in csr_routers:
+        output = configure_bgp(router=router, username="script", password="cisco123", local_as='65534',
+                         networks_info=[
+                             ('172.16.11.0', '255.255.255.0'),
+                             ('172.16.12.0', '255.255.255.0'),
+                             ('172.16.13.0', '255.255.255.0'),
+                             ])
+        print(f"BGP Table for {router}:")
+        for line in output:
+            print(line)
+
+    output = configure_fortigate_port(firewall="10.10.99.1", username="admin", password="cisco123", 
+                             port="port2", ip="172.16.21.1", mask="255.255.255.0", 
+                             mgmt_access=["ssh", "ping"], alias="inside", 
+                             role="lan", status="up")
+    for line in output:
+        print(line)
+
+    output = configure_fortigate_fw_policy("10.10.99.1", username="admin", password="cisco123",
+                                           policy_name="inside-outside", src_int="port2",
+                                           dest_int="port1", action="accept", 
+                                           src_address="all", dest_address="all")
+    for line in output:
+        print(line)
+
+    
+
+    output = configure_vlan_and_svi("10.10.99.2", "script", "cisco123", "10",
+                                    ["Ethernet0/0", "Ethernet0/2"], True, "172.16.21.2", "255.255.255.0")
+    for line in output:
+        print(line)
+
+    output = create_static_route("10.10.99.2", "script", "cisco123",
+                                 "0.0.0.0", "0.0.0.0", "172.16.21.1")
+    for line in output:
+        print(line)
+
+    # output = test_connectivity("10.10.99.2", "script", "cisco123",
+    #                            "172.16.21.2", "172.16.11.1")
+    # for line in output:
+    #     print(line)
 
