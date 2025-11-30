@@ -25,3 +25,11 @@
 This repository is part of the companion resources for the book  
 **“Full Stack Network Automation”** — a fully tested, hands-on, real-world guide to Python, Paramiko, REST APIs, Ansible, Docker, GNS3, and Django-based ZTP workflows.
 
+----
+
+This repository is part of Chapter 5 of the book Full Stack Network Automation, where we learn how to write Object-Oriented Python code to interact with network devices.
+
+You can also download the Docker image that includes Python, Ansible, and all required software pre-installed (this image is built in Chapter 1 of the book):
+
+```docker pull shahzadqadir/fullstack-auto:v1``` 
+
