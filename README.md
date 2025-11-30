@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/💻%20GitHub-Profile-black?style=for-the-badge" alt="GitHub Profile">
   </a>
 
-  <a href="https://www.linkedin.com/in/shahzad-qadir" target="_blank">
+  <a href="https://www.linkedin.com/in/shahzadqadir" target="_blank">
     <img src="https://img.shields.io/badge/🔗%20LinkedIn-Connect-blue?style=for-the-badge" alt="LinkedIn Profile">
   </a>
 
